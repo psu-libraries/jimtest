@@ -12,6 +12,7 @@ jobs:
         with:
           configurationFile: github>psu-libraries/renovate-presets:drupalSite
           renovate-version: 39.8.0
+          token: ${{ secrets.RENOVATE_TOKEN }}
     env:
       LOG_LEVEL: DEBUG
     
