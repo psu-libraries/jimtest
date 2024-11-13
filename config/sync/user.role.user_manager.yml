@@ -1,0 +1,20 @@
+uuid: 6c929fcb-e55d-4d5f-8dec-7bbf5966e92f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - toolbar
+id: user_manager
+label: 'User manager'
+weight: 5
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access site in maintenance mode'
+  - 'access site reports'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'view the administration theme'
+  - 'view user email addresses'

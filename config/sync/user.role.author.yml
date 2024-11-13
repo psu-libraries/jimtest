@@ -1,0 +1,36 @@
+uuid: 717def6b-1216-4e6e-b9b0-6905d0a6e563
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+    - node.type.page
+  module:
+    - filter
+    - media
+    - node
+    - path
+    - system
+    - taxonomy
+id: author
+label: Author
+weight: 4
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access media overview'
+  - 'create media'
+  - 'create page content'
+  - 'create url aliases'
+  - 'edit any page content'
+  - 'edit own page content'
+  - 'update any media'
+  - 'use text format full_html'
+  - 'view all revisions'
+  - 'view all taxonomy revisions'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view the administration theme'
+  - 'view vocabulary labels'

@@ -1,0 +1,72 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 33e1ba3f-5746-4e6e-95e6-1cbd54577e50
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Welcome to your new site!'
+  created:
+    -
+      value: 1722967535
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Welcome to your new site! | PSU Base'
+    -
+      tag: meta
+      attributes:
+        name: description
+        content: "You have just installed your new site. \_Here is what you need to do first!Update basic site info (Site name)Add usersAdd content\_Update this page!"
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'https://drupal-site.psul.localhost/welcome-your-new-site'
+    -
+      tag: meta
+      attributes:
+        property: 'og:site_name'
+        content: 'PSU Base'
+    -
+      tag: meta
+      attributes:
+        property: 'og:type'
+        content: article
+    -
+      tag: meta
+      attributes:
+        property: 'og:url'
+        content: 'https://drupal-site.psul.localhost/welcome-your-new-site'
+  path:
+    -
+      alias: /welcome-your-new-site
+      langcode: en
+      pathauto: 1
+  body:
+    -
+      value: '<p>You have just installed your new site. &nbsp;Here is what you need to do first!</p><ol><li>Update basic site info (Site name)</li><li>Add users</li><li>Add content&nbsp;</li><li>Update this page!</li></ol>'
+      format: full_html
+      summary: ''

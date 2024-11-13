@@ -1,0 +1,14 @@
+uuid: 20686f97-2a64-41b3-bf2b-0b6361e51f2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.azure_token_endpoint
+    - openid_connect.client.penn_state
+id: azure_token_endpoint
+label: azure_token_endpoint
+config_type: openid_connect_client
+config_prefix: openid_connect.client
+config_name: penn_state
+config_item: settings.token_endpoint
+key_id: azure_token_endpoint

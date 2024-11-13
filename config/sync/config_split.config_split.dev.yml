@@ -1,0 +1,19 @@
+uuid: f54076e1-db98-4fc5-b4c2-8d9f7672e1a0
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: dev
+description: 'Configuration for local development environment.'
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../splits/dev
+module:
+  dblog: 0
+  devel: 0
+  stage_file_proxy: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

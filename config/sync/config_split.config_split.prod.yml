@@ -1,0 +1,17 @@
+uuid: a73cb2fd-6bb6-4c7f-b927-aad20a101969
+langcode: en
+status: false
+dependencies: {  }
+id: prod
+label: prod
+description: 'Configuration for Kubernetes environments (QA and Prod).'
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../splits/prod
+module:
+  psul_splunk_logger: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

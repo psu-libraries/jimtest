@@ -1,0 +1,57 @@
+#!/bin/bash
+#
+## Description: Builds all themes within web/themes/custom directory
+## Usage: theme-build
+## Example: "ddev theme-build", "ddev theme-build --dev"
+
+# Function to display usage information.
+usage() {
+  echo "Usage: ddev theme-watch [--dev] [theme_name]"
+  echo "  --dev         Enable development mode (optional)"
+  echo ""
+  exit 1
+}
+
+# Initialize variables.
+MODE="--production"
+
+# Parse command-line arguments.
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --dev)
+      MODE=""
+      shift
+      ;;
+    *)
+      echo "Unknown option: $1"
+      usage
+      exit 1;
+      ;;
+  esac
+done
+
+## Build base theme if it exists
+if [ -f web/themes/contrib/psulib_base/webpack.mix.js ]; then
+  pushd web/themes/contrib/psulib_base/ || exit
+  npm install
+  if [ "$MODE" == "" ]; then
+    npx update-browserslist-db@latest -y
+  fi
+  npx mix "$MODE"
+  popd || exit
+fi
+
+## Build all custom themes.
+for directory in $(ls web/themes/custom); do
+  if [ -d web/themes/custom/$directory ]; then
+    pushd web/themes/custom/$directory || exit
+    if [ -f webpack.mix.js ]; then
+      npm install
+      if [ "$MODE" == "" ]; then
+        npx update-browserslist-db@latest -y
+      fi
+      npx mix "$MODE"
+    fi
+    popd || exit
+  fi
+done

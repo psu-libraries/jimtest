@@ -1,0 +1,14 @@
+uuid: 1842b921-59f1-4fd8-83ef-ecb15f5661c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.azure_client_id
+    - openid_connect.client.penn_state
+id: azure_client_id
+label: azure_client_id
+config_type: openid_connect_client
+config_prefix: openid_connect.client
+config_name: penn_state
+config_item: settings.client_id
+key_id: azure_client_id

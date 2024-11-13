@@ -1,0 +1,187 @@
+{
+    "name": "psu-libraries/drupal-site-template",
+    "description": "Project template for PSUL Drupal projects.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://github.com/psu-libraries/drupal-site-template",
+    "repositories": [
+        {
+            "type": "github",
+            "url": "https://github.com/psu-libraries/psulib_base"
+        },
+        {
+            "type": "github",
+            "url": "https://github.com/psu-libraries/psulib_base_helper"
+        },
+        {
+            "type": "github",
+            "url": "https://github.com/psu-libraries/psul_splunk_logger"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "require": {
+        "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/admin_toolbar": "^3.4",
+        "drupal/anchor_link": "^3.0@beta",
+        "drupal/antibot": "^2.0",
+        "drupal/better_exposed_filters": "^7.0",
+        "drupal/block_field": "^1.0@RC",
+        "drupal/config_ignore": "^3.0",
+        "drupal/config_override_warn": "^2.0",
+        "drupal/config_readonly": "^1.0",
+        "drupal/config_split": "^2.0",
+        "drupal/core-composer-scaffold": "^10.1",
+        "drupal/core-project-message": "^10.1",
+        "drupal/core-recommended": "^10.1",
+        "drupal/ctools": "^4.1",
+        "drupal/custom_breadcrumbs": "^1.1",
+        "drupal/default_content": "^2.0@alpha",
+        "drupal/editor_advanced_link": "^2.2",
+        "drupal/field_group": "^3.4",
+        "drupal/gin": "^3.0@RC",
+        "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/health_check": "^3.0",
+        "drupal/honeypot": "^2.2",
+        "drupal/key": "^1.17",
+        "drupal/layout_options": "^1.3",
+        "drupal/link_attributes": "^2.1",
+        "drupal/linkit": "^6.1",
+        "drupal/matomo": "^1.23",
+        "drupal/menu_block": "^1.10",
+        "drupal/menu_breadcrumb": "^2.0",
+        "drupal/metatag": "^2.0",
+        "drupal/migrate_plus": "^6.0",
+        "drupal/migrate_tools": "^6.0",
+        "drupal/migrate_upgrade": "^4.0",
+        "drupal/openid_connect": "^3.0@alpha",
+        "drupal/openid_connect_windows_aad": "^2.0@beta",
+        "drupal/paragraphs": "^1.16",
+        "drupal/pathauto": "^1.11",
+        "drupal/pathologic": "^2.0@alpha",
+        "drupal/redirect": "^1.9",
+        "drupal/search_api": "^1.35",
+        "drupal/simple_sitemap": "^4.1",
+        "drupal/social_media_links": "^2.9",
+        "drupal/stage_file_proxy": "^3.1",
+        "drupal/symfony_mailer": "^1.4@beta",
+        "drupal/twig_tweak": "^3.2",
+        "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/webform": "^6.2",
+        "drush/drush": "^13.0",
+        "npm-asset/northernco--ckeditor5-anchor-drupal": "^0.5.0",
+        "oomphinc/composer-installers-extender": "^2.0",
+        "psu-libraries/psul_splunk_logger": "^1.0",
+        "psu-libraries/psulib_base": "^1.0",
+        "psu-libraries/psulib_base_helper": "^1",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true,
+            "phpro/grumphp": true,
+            "oomphinc/composer-installers-extender": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/README.md": false,
+                "[web-root]/sites/example.settings.local.php": false,
+                "[web-root]/sites/example.sites.php": false
+            }
+        },
+        "installer-types": [
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/chosen": [
+                "npm-asset/chosen-js"
+            ],
+            "web/libraries/ckeditor5-anchor-drupal": [
+                "npm-asset/northernco--ckeditor5-anchor-drupal"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        },
+        "patches": {
+
+            "drupal/core": {
+                "3080034 - Remove array_filter from FieldInstanceSettings": "https://git.drupalcode.org/project/drupal/-/merge_requests/2945.diff",
+                "3062441 - Can't run update.php after upgrade to 8.7.3": "https://www.drupal.org/files/issues/2024-03-27/3062441-patch-41.patch",
+                "3045871 - Add 'Table class' option to views table formatter UI": "https://www.drupal.org/files/issues/2021-11-09/3045871-10.patch"
+            },
+            "drupal/matomo": {
+                "3390345 - Using ${var} string is deprecated": "https://www.drupal.org/files/issues/2023-09-28/matomo-deprecated_var_string.patch"
+            },
+            "drupal/menu_block": {
+                "3321699 - Setting Use as title to 'Active trail's root title' should respect Initial visibility level": "https://www.drupal.org/files/issues/2024-06-18/3321699-menu_block-respect-initial-level-8.patch"
+            },
+            "drupal/pathauto": {
+                "3079275 - Custom aliases (which are not generated with the actual patterns) can be lost during the migration": "https://www.drupal.org/files/issues/2024-07-29/pathauto-n3079275-75-combined.patch"
+            },
+            "drupal/pathologic": {
+                "2692641 - Convert href to the aliased url if possible": "https://www.drupal.org/files/issues/2023-06-23/pathologic-aliased-urls-2692641-30-2.0.x.patch"
+            },
+            "drupal/default_content": {
+                "2698425 - Do not reimport existing entities": "https://www.drupal.org/files/issues/2024-05-13/2698425-196.patch"
+            }
+        }
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "drupal/devel": "^5.1",
+        "drupal/migrate_devel": "^3.0",
+        "drupal/unused_modules": "^1.5",
+        "mglaman/drupal-check": "^1.4",
+        "phpro/grumphp": "^2.5"
+    }
+}

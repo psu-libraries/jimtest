@@ -1,0 +1,25 @@
+uuid: d0b31bbc-5f41-4f3e-84f1-14f3b9550a77
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - psulib_base
+_core:
+  default_config_hash: 2XEc2BRShADdapoGlJhtzyKF11b_Sb7N61RSS-IA8G0
+id: psulib_base_branding
+theme: psulib_base
+region: nav_branding
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

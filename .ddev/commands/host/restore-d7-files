@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+## Description: Restores files (NOT database) from the current project in s3
+## Usage: restore-d7-files
+## Example: "ddev restore-d7-files"
+
+function check_program() {
+    which $1 > /dev/null 2>&1
+    if [ $? -ne 0 ]; then 
+    echo "you need $1 installed to run this script"
+    exit 1
+    fi
+}
+
+check_program "fzf"
+check_program "aws"
+
+# check for valid aws session
+aws configure export-credentials --format env > /dev/null 2>&1 || aws sso login
+
+file=$(aws s3 ls --recursive s3://edu.psu.libraries.drupalteam.drupal-backups/files/$DDEV_PROJECT/d7/ | awk '{print $4}' | fzf)
+
+aws s3 cp s3://edu.psu.libraries.drupalteam.drupal-backups/$file "./stateful-data/$(basename $file)"
+
+mkdir -p $DDEV_APPROOT/drupal7
+
+tar -xvf "./stateful-data/$(basename $file)" -C $DDEV_APPROOT/drupal7
+
+if [ ! -f $DDEV_APPROOT/$DDEV_DOCROOT/sites/default/settings.local.php ]; then 
+  echo "settings.local.php not found!"
+  echo "Copy $DDEV_APPROOT/$DDEV_DOCROOT/sites/example.settings.local.php to $DDEV_APPROOT/$DDEV_DOCROOT/sites/default/settings.local.php"
+fi

@@ -1,0 +1,23 @@
+# Local development services.
+#
+# PSUL Development services yaml. This adds onto the scaffolded service.
+parameters:
+  http.response.debug_cacheability_headers: true
+  # Disabling twig caching.
+  # https://www.drupal.org/docs/develop/development-tools/disabling-and-debugging-caching#s-disable-twig-cache-manually-the-old-way
+  twig.config:
+    debug: true
+    auto_reload: true
+    cache: false
+  # Output render caching data.
+  # https://www.drupal.org/docs/develop/development-tools/disabling-and-debugging-caching#s-enable-render-cache-debugging
+  renderer.config:
+    required_cache_contexts: ['languages:language_interface', 'theme', 'user.permissions']
+    auto_placeholder_conditions:
+      max-age: 0
+      contexts: ['session', 'user']
+      tags: []
+    debug: true
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory

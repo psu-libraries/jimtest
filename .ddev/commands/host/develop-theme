@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+## Description: Sets up current working directory to develop the psulib_base theme
+## Usage: develop-theme
+## Example: "ddev develop-theme
+
+ddev describe
+
+echo "WARNING. This command will remove psulib_base theme from the above project, and install it into your custom themes for development."
+read -r -p "Would you like to proceed? (y/n)" yn
+
+case $yn in 
+  [Yy] ) break;;
+  [Nn] ) exit;;
+  * ) exit;;
+esac
+
+
+echo "removing parent psulib_base theme"
+ddev composer remove 'psu-libraries/psulib_base'
+
+if [ ! -d web/themes/custom/psulib_base ]; then 
+  echo "cloning psulib_base into custom"
+  git clone git@github.com:psu-libraries/psulib_base web/themes/custom/psulib_base 
+fi
+
+if [ -d web/themes/custom/psulib_base ]; then 
+  echo "updating local checkout of psulib_base theme"
+  pushd web/themes/custom/psulib_base || exit
+  git fetch && git pull 
+  popd || exit
+fi
+
+echo "you can now develop psulib_base by making changes to web/themes/custom/psulib_base"

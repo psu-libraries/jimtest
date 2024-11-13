@@ -1,0 +1,22 @@
+uuid: 7009a4cb-2d8c-4f60-b4b1-2b250d22296a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - psulib_base
+_core:
+  default_config_hash: xVqAOWzZL6fZLIw1iTeObEPL_o8uhXgZd7s1vb0tMjM
+id: psulib_base_local_tasks
+theme: psulib_base
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

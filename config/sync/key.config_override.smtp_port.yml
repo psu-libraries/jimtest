@@ -1,0 +1,14 @@
+uuid: f7a1d87c-5dd6-4904-8fcf-cba63d0a123f
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.smtp_port
+    - symfony_mailer.mailer_transport.smtp
+id: smtp_port
+label: smtp_port
+config_type: mailer_transport
+config_prefix: symfony_mailer.mailer_transport
+config_name: smtp
+config_item: configuration.port
+key_id: smtp_port

@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+## Description: Generate a theme and use psulib_base as it's parent
+## Usage: generate-subtheme rad
+## Example: "ddev generate-subtheme rad"
+
+if [[ -z "$1" ]]; then
+  echo "Usage: ddev generate-subtheme <theme_name>"
+  exit 1
+fi
+
+# here we replace any - with _ for the theme name do adhere to drupal naming standards
+theme_name="${1/-/_}"
+
+if [ -d web/themes/custom/"$theme_name" ]; then
+  echo 'theme exists. exiting'
+  exit 1
+fi
+
+drush generate theme --answer="$theme_name" --answer="$theme_name" --answer=psulib_base --answer="" --answer=Custom --answer=no --answer=no
+
+# files that we will copy from psulib_base into our theme
+files=(
+  'webpack.mix.js'
+  'package.json'
+  'package-lock.json'
+)
+
+for item in "${files[@]}"; do
+  cp /var/www/html/web/themes/contrib/psulib_base/"$item" /var/www/html/web/themes/custom/"$theme_name"
+done
+
+# remove all skaffolded css files
+rm -rf /var/www/html/web/themes/custom/"$theme_name"/css/*
+mkdir -p /var/www/html/web/themes/custom/"$theme_name"/js/base
+mv /var/www/html/web/themes/custom/"$theme_name"/js/"${theme_name/_/-}".js /var/www/html/web/themes/custom/"$theme_name"/js/base/application.js
+
+
+# create library file
+cat << EOF > web/themes/custom/"$theme_name"/"$theme_name".libraries.yml
+# Main theme library.
+global:
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/application.js: {}
+EOF
+
+mkdir -p /var/www/html/web/themes/custom/"$theme_name"/scss
+touch /var/www/html/web/themes/custom/"$theme_name"/scss/style.scss
+
+# add css/ to gitignore
+echo '*.css' >> /var/www/html/web/themes/custom/"$theme_name"/css/.gitignore
+echo 'application.js' >> /var/www/html/web/themes/custom/"$theme_name"/js/.gitignore
+
+# setup mix
+pushd /var/www/html/web/themes/custom/"$theme_name" || exit
+npm install
+npx mix
+npx mix
+popd || exit

@@ -1,0 +1,20 @@
+uuid: cd5dd127-a185-484b-9a39-7dd2748f8280
+langcode: en
+status: true
+dependencies:
+  theme:
+    - psulib_base
+_core:
+  default_config_hash: RrDyyyBvMFq-lnEG8d9QgUKt0C0fmz6SgTIX7OFS-eA
+id: psulib_base_page_title
+theme: psulib_base
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

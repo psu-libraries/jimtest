@@ -1,0 +1,12 @@
+name: 'PSUL Default Content'
+type: module
+description: 'Adding default content to new PSUL websites.'
+package: PSU Libraries
+core_version_requirement: ^10 || ^11
+dependencies:
+  - default_content:default_content
+  - drupal:node
+  - drupal:block_content
+default_content:
+  node:
+    - 33e1ba3f-5746-4e6e-95e6-1cbd54577e50

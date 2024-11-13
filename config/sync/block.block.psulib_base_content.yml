@@ -1,0 +1,22 @@
+uuid: dcfcb86d-de43-4bf5-8cb7-75f1dd083033
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - psulib_base
+_core:
+  default_config_hash: ZINoLj0y-o0KaphBAusDifNU8LEwJVjvAPxK_26LuNw
+id: psulib_base_content
+theme: psulib_base
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

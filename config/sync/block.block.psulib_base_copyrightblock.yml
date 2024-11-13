@@ -1,0 +1,20 @@
+uuid: 87d22cca-2073-4345-9779-4189922511a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - psulib_base_helper
+  theme:
+    - psulib_base
+id: psulib_base_copyrightblock
+theme: psulib_base
+region: footer_bottom
+weight: 0
+provider: null
+plugin: psulib_base_helper_copyright_block
+settings:
+  id: psulib_base_helper_copyright_block
+  label: 'Copyright Block'
+  label_display: '0'
+  provider: psulib_base_helper
+visibility: {  }

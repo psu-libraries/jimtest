@@ -1,0 +1,20 @@
+uuid: abf8e340-1d9a-4441-84d3-8dedb344dbad
+langcode: en
+status: true
+dependencies: {  }
+id: penn_state
+label: 'Penn State'
+plugin: generic
+settings:
+  client_id: null
+  client_secret: null
+  iss_allowed_domains: ''
+  issuer_url: ''
+  authorization_endpoint: null
+  token_endpoint: null
+  userinfo_endpoint: ''
+  end_session_endpoint: ''
+  scopes:
+    - openid
+    - email
+    - profile

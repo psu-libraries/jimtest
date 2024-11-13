@@ -1,0 +1,7 @@
+# Run PHPCS to check against Drupal coding standards and best practices.
+# See phpcs.xml.dist or phpcs.xml for test definition. 
+phpcs;
+
+# Run Drupal check to check for deprecations.
+php vendor/bin/drupal-check --drupal-root=./web/ ./web/modules/custom
+php vendor/bin/drupal-check --drupal-root=./web/ ./web/themes/custom

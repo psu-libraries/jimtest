@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+## Description: watch a theme for changes
+## Usage: theme-watch <theme_name>
+## Example: "ddev theme-watch rad"
+
+## If we only have one theme, we will watch it.
+
+# Function to display usage information.
+usage() {
+  echo "We do not know which theme to watch. please select one"
+  echo "Usage: ddev theme-watch [theme_name]"
+  echo "  theme_name       The custom theme you would like to watch."
+  echo "The follow themes were found: ${custom_themes[*]}"
+  echo ""
+  exit 1
+}
+
+custom_themes=($(ls web/themes/custom))
+
+len=${#custom_themes[@]}
+
+if [ -z "$1" ]; then
+  if [[ $len -gt 1 ]]; then
+    usage
+    exit 1
+  fi
+  theme=${custom_themes[0]}
+else
+  theme=$1
+fi
+
+pushd web/themes/custom/$theme || exit
+npm install
+npx update-browserslist-db@latest -y
+npx mix watch
+popd || exit

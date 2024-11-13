@@ -1,0 +1,22 @@
+uuid: 895f82a1-29ca-46f2-b98a-36f51a5c4ac7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - psulib_base
+_core:
+  default_config_hash: z83Q4DDIvloQH5gXUdXtBHBvvgyGviNsJmxOmih9aJc
+id: psulib_base_breadcrumbs
+theme: psulib_base
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

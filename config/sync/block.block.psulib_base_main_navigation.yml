@@ -1,0 +1,27 @@
+uuid: efa54527-fdd3-4cf1-b9d0-5627e2dd32bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - psulib_base
+_core:
+  default_config_hash: BtczKDYZevBZLezknVsEaG-Z0zJMr1SNlTrfR1V1uUM
+id: psulib_base_main_navigation
+theme: psulib_base
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

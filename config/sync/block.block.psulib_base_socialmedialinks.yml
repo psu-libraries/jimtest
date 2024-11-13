@@ -1,0 +1,167 @@
+uuid: 477003db-b510-4219-a6b4-2275c525f30a
+langcode: en
+status: true
+dependencies:
+  module:
+    - social_media_links
+  theme:
+    - psulib_base
+id: psulib_base_socialmedialinks
+theme: psulib_base
+region: footer_left
+weight: 0
+provider: null
+plugin: social_media_links_block
+settings:
+  id: social_media_links_block
+  label: 'Social Media Links'
+  label_display: '0'
+  provider: social_media_links
+  platforms:
+    amazon:
+      value: ''
+      description: ''
+      weight: '-43'
+    googleplay:
+      value: ''
+      description: ''
+      weight: '-42'
+    mastodon:
+      value: ''
+      description: ''
+      weight: '-41'
+    website:
+      value: ''
+      description: ''
+      weight: '-39'
+    github:
+      value: ''
+      description: ''
+      weight: '-38'
+    glassdoor:
+      value: ''
+      description: ''
+      weight: '-37'
+    goodreads:
+      value: ''
+      description: ''
+      weight: '-36'
+    vkontakte:
+      value: ''
+      description: ''
+      weight: '-35'
+    tiktok:
+      value: ''
+      description: ''
+      weight: '-34'
+    youtube_channel:
+      value: ''
+      description: ''
+      weight: '-33'
+    tumblr:
+      value: ''
+      description: ''
+      weight: '-32'
+    xing:
+      value: ''
+      description: ''
+      weight: '-31'
+    gitlab:
+      value: ''
+      description: ''
+      weight: '-30'
+    vimeo:
+      value: ''
+      description: ''
+      weight: '-29'
+    meetup:
+      value: ''
+      description: ''
+      weight: '-28'
+    email:
+      value: ''
+      description: ''
+      weight: '-27'
+    instagram:
+      value: psulibs
+      description: 'Follow us on Instagram'
+      weight: '4'
+    drupal:
+      value: ''
+      description: ''
+      weight: '-25'
+    youtube:
+      value: ''
+      description: ''
+      weight: '-24'
+    pinterest:
+      value: ''
+      description: ''
+      weight: '-23'
+    patreon:
+      value: ''
+      description: ''
+      weight: '-22'
+    behance:
+      value: ''
+      description: ''
+      weight: '-21'
+    whatsapp:
+      value: ''
+      description: ''
+      weight: '-20'
+    flickr:
+      value: ''
+      description: ''
+      weight: '-19'
+    linkedin:
+      value: company/psulibs
+      description: 'Follow us on LinkedIn'
+      weight: '1'
+    facebook:
+      value: psulibs
+      description: 'Follow us on Facebook'
+      weight: '2'
+    telegram:
+      value: ''
+      description: ''
+      weight: '-17'
+    slideshare:
+      value: ''
+      description: ''
+      weight: '-16'
+    bitbucket:
+      value: ''
+      description: ''
+      weight: '-15'
+    contact:
+      value: ''
+      description: ''
+      weight: '-14'
+    googleplus:
+      value: ''
+      description: ''
+      weight: '-13'
+    twitter:
+      value: psulibs
+      description: 'Follow us on X'
+      weight: '3'
+    rss:
+      value: ''
+      description: ''
+      weight: '-11'
+  appearance:
+    orientation: h
+    show_name: 0
+    suggestion: ''
+  link_attributes:
+    target: '<none>'
+    rel: '<none>'
+  iconset:
+    style: 'bootstrap_icons:font-size-xl'
+    installed_iconsets:
+      bootstrap_icons:
+        examples: ''
+      fontawesome:
+        examples: ''
+visibility: {  }

@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+## Description: Restores database and files from the current project in s3
+## Usage: restore-all-from-s3
+## Example: "ddev restore-all-from-s3"
+
+ddev restore-database
+ddev restore-files
+ddev restore-private-files

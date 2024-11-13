@@ -1,0 +1,22 @@
+uuid: 97540c69-32ed-4386-9d44-7b246b0ec3b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - psulib_base
+_core:
+  default_config_hash: zpSJc8Ml9S45QmnMzKSRmqi_PBKRN2_Jjxxbt7T9BMk
+id: psulib_base_messages
+theme: psulib_base
+region: content
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

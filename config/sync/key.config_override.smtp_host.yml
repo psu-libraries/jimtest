@@ -1,0 +1,14 @@
+uuid: 565349b6-e34c-48fd-a1ac-49f65ad5ebae
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.smtp_host
+    - symfony_mailer.mailer_transport.smtp
+id: smtp_host
+label: smtp_host
+config_type: mailer_transport
+config_prefix: symfony_mailer.mailer_transport
+config_name: smtp
+config_item: configuration.host
+key_id: smtp_host
