@@ -1,0 +1,63 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate Presets for PSU Libraries Drupal 10+ sites.",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboardApproval"
+  ],
+  "labels": ["maintenance"],
+  "dependencyDashboardApproval": true,
+  "enabledManagers": [
+    "composer",
+    "docker-compose",
+    "dockerfile",
+    "npm",
+    "regex"
+  ],
+  "packageRules": [
+    {
+      "groupName": "Drupal Core Major",
+      "groupSlug": "drupal-major-update",
+      "matchManagers": ["composer"],
+      "matchPackagePatterns": ["^drupal/core-recommended", "^drupal/core-composer-scaffold", "^drupal/core-project-message"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Composer Minor & Patch",
+      "groupSlug": "composer-minor-updates",
+      "matchManagers": ["composer"],
+      "matchPackagePatterns": [".*"],
+      "matchUpdateTypes": ["patch", "minor"]
+  },
+    {
+      "groupName": "NPM Minor & Patch",
+      "groupSlug": "npm-minor-updates",
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": [".*"],
+      "matchUpdateTypes": ["patch", "minor"]
+    },
+    {
+      "groupName": "Harbor k8s Docker Image Updates (automerge)",
+      "groupSlug": "harbor-k8s-drupal-base-image",
+      "matchManagers": ["regex"],
+      "separateMinorPatch": true,
+      "automerge": true,
+      "automergeType": "branch",
+      "ignoreTests": true,
+      "extends": [
+        "schedule:automergeEarlyMondays"
+      ],
+      "dependencyDashboardApproval": false
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["FROM\\s(?<depName>harbor\\.k8s\\.libraries\\.psu\\.edu/library/drupal-base-image):(?<currentValue>php-\\d+\\.\\d+\\.\\d+-node-20-v\\d+)"],
+      "depNameTemplate": "{{depName}}",
+      "versioningTemplate": "regex:^php-(?<major>\\d+).(?<minor>\\d+).(?<patch>\\d+)-node-20-v(?<build>\\d+)",
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
