@@ -14,5 +14,5 @@ jobs:
           renovate-version: 39.8.0
           token: ${{ secrets.RENOVATE_TOKEN }}
     env:
-      LOG_LEVEL: ERROR
+      LOG_LEVEL: DEBUG
     
