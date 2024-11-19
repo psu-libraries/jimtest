@@ -10,8 +10,8 @@ jobs:
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v41.0.2
         with:
-          configurationFile: drupalSite.json
+          configurationFile: renovate.json
           renovate-version: 39.8.0
           token: ${{ secrets.RENOVATE_TOKEN }}
     env:
-      LOG_LEVEL: ERROR
+      LOG_LEVEL: DEBUG
