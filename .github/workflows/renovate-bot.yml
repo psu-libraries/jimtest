@@ -1,4 +1,4 @@
-name: Renovate
+name: renovate
 run-name: jimtest-renovate
 on: [push]
 jobs:
