@@ -6,6 +6,7 @@
 .ddev/providers/
 .ddev/traefik/certs
 .ddev/xhprof/
+notes.txt
 stateful-data
 
 # Development artifacts
