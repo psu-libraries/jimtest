@@ -20,3 +20,5 @@ RUN --mount=type=secret,id=COMPOSER_AUTH,env=COMPOSER_AUTH,required composer ins
 ADD --chown=drupal . /var/www/html
 
 RUN build-themes
+
+USER root
