@@ -14,7 +14,9 @@ COPY composer.lock /var/www/html/composer.lock
 
 ADD --chown=drupal ./patches /var/www/html/patches
 
+USER root
 RUN composer require --dev metadrop/drupal-updater
+USER drupal
 RUN composer validate --strict
 RUN --mount=type=secret,id=COMPOSER_AUTH,env=COMPOSER_AUTH,required composer install --no-dev
 
@@ -22,4 +24,3 @@ ADD --chown=drupal . /var/www/html
 
 RUN build-themes
 
-USER root
