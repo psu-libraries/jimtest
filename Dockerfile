@@ -12,3 +12,7 @@ RUN apt-get update -y && \
 
 USER drupal
 RUN composer require metadrop/drupal-updater
+
+RUN --mount=type=secret,id=COMPOSER_AUTH,env=COMPOSER_AUTH,required drupal-updater update
+
+RUN --mount=type=secret,id=COMPOSER_AUTH,env=COMPOSER_AUTH,required composer outdated
