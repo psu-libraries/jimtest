@@ -7,6 +7,7 @@ WORKDIR /var/www/html
 USER root
 RUN apt-get update -y && \
     apt-get install openssh-client -y && \
+    apt-get install gh -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
