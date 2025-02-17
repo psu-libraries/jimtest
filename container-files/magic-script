@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# ====================================
+# clean database
+# ====================================
+
+# drush site:install --existing-config -y
+
+composer require metadrop/drupal-updater
 
 # ====================================
 # configure ssh
@@ -39,6 +46,7 @@ drupal-updater update --config /usr/local/etc/drupal-updater-config.yml
 
 # composer outdated (not sure what to do with this)
 
+composer remove metadrop/drupal-updater
 
 # ====================================
 # create pull request
@@ -47,7 +55,7 @@ drupal-updater update --config /usr/local/etc/drupal-updater-config.yml
 git commit --no-verify -a -m "jimtest garbage"
 git push -u origin jimtest-updater
 
-gh pr create \
-    --title "release jimtest-v1 for jimtest-ahd" \
-    --body "release jimtest-v1 for jimtest-ahd" \
-    --base main
+# gh pr create \
+#     --title "release jimtest-v1 for jimtest-ahd" \
+#     --body "release jimtest-v1 for jimtest-ahd" \
+#     --base main
