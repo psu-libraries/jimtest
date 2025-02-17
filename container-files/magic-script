@@ -6,7 +6,6 @@
 
 # drush site:install --existing-config -y
 
-composer require metadrop/drupal-updater
 
 # ====================================
 # configure ssh
@@ -28,6 +27,8 @@ git config --global user.name "jimmy crack corn"
 
 git config --local core.sshCommand "/usr/bin/ssh -i /home/drupal/.ssh/id_rsa_circle"
 
+git checkout -b jimtest-updater
+
 
 # ====================================
 #  configure composer
@@ -40,7 +41,7 @@ composer config --global github-oauth.github.com $GITHUB_TOKEN
 # run drupal updates
 # ====================================
 
-git checkout -b jimtest-updater
+composer require metadrop/drupal-updater
 
 drupal-updater update --config /usr/local/etc/drupal-updater-config.yml
 
