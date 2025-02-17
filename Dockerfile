@@ -19,4 +19,4 @@ USER drupal
 
 # RUN --mount=type=secret,id=COMPOSER_AUTH,env=COMPOSER_AUTH,required composer outdated
 
-CMD ["/usr/local/bin/magic-script"]
+# CMD ["/usr/local/bin/magic-script"]
