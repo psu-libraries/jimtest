@@ -1,0 +1,53 @@
+#!/bin/sh
+
+
+# ====================================
+# configure ssh
+# ====================================
+
+mkdir /home/drupal/.ssh
+echo  "$CIRCLE_SSH_KEY" > /home/drupal/.ssh/id_rsa_circle
+chmod 600 /home/drupal/.ssh/id_rsa_circle
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+
+# ====================================
+# configure git
+# ====================================
+
+git config --global --add safe.directory /var/www/html
+git config --global user.email "jkc103@psu.edu"
+git config --global user.name "jimmy crack corn"
+
+git config --local core.sshCommand "/usr/bin/ssh -i /home/drupal/.ssh/id_rsa_circle"
+
+
+# ====================================
+#  configure composer
+# ====================================
+
+composer config --global github-oauth.github.com $GITHUB_TOKEN
+
+
+# ====================================
+# run drupal updates
+# ====================================
+
+git checkout -b jimtest-updater
+
+drupal-updater update --config /usr/local/etc/drupal-updater-config.yml
+
+# composer outdated (not sure what to do with this)
+
+
+# ====================================
+# create pull request
+# ====================================
+
+git commit --no-verify -a -m "jimtest garbage"
+git push -u origin jimtest-updater
+
+gh pr create \
+    --title "release jimtest-v1 for jimtest-ahd" \
+    --body "release jimtest-v1 for jimtest-ahd" \
+    --base main
