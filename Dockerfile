@@ -6,7 +6,7 @@ WORKDIR /var/www/html
 
 USER root
 RUN apt-get update -y && \
-    apt-get install -y openssh-client gh && \
+    apt-get install -y openssh-client gh vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

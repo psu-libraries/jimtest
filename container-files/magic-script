@@ -1,14 +1,15 @@
 #!/bin/sh
 
 # ====================================
-# clean database
+#  clean database
 # ====================================
 
-# drush site:install --existing-config -y
+drush site:install --existing-config -y
+
 
 
 # ====================================
-# configure ssh
+#  configure ssh
 # ====================================
 
 mkdir /home/drupal/.ssh
@@ -17,8 +18,9 @@ chmod 600 /home/drupal/.ssh/id_rsa_circle
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 
+
 # ====================================
-# configure git
+#  configure git
 # ====================================
 
 git config --global --add safe.directory /var/www/html
@@ -30,33 +32,30 @@ git config --local core.sshCommand "/usr/bin/ssh -i /home/drupal/.ssh/id_rsa_cir
 git checkout -b jimtest-updater
 
 
+
 # ====================================
-#  configure composer
+#  run drupal updates
 # ====================================
 
 composer config --global github-oauth.github.com $GITHUB_TOKEN
-
-
-# ====================================
-# run drupal updates
-# ====================================
 
 composer require metadrop/drupal-updater
 
 drupal-updater update --config /usr/local/etc/drupal-updater-config.yml
 
-# composer outdated (not sure what to do with this)
-
 composer remove metadrop/drupal-updater
 
+
+
 # ====================================
-# create pull request
+#  create pull request
 # ====================================
 
+git add -A
 git commit --no-verify -a -m "jimtest garbage"
 git push -u origin jimtest-updater
 
-# gh pr create \
-#     --title "release jimtest-v1 for jimtest-ahd" \
-#     --body "release jimtest-v1 for jimtest-ahd" \
-#     --base main
+gh pr create \
+    --title "release v1-jimtest for ahd" \
+    --body "release v1-jimtest for ahd" \
+    --base main
