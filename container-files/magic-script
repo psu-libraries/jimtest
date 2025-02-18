@@ -31,6 +31,7 @@ git config --global user.name "Drupal Magic Script"
 git config --local core.sshCommand "/usr/bin/ssh -i /home/drupal/.ssh/id_rsa_circle"
 
 
+
 # ====================================
 #  checkout branch with unique name
 # ====================================
@@ -60,10 +61,10 @@ composer remove metadrop/drupal-updater
 # ====================================
 
 git add -A
-git commit --no-verify -a -m "drupal-updater: $uid"
+git commit --no-verify -a -m "drupal-updater release: $uid"
 git push -u origin drupal-updater-$uid
 
 gh pr create \
-    --title "release drupal-updater-$uid" \
-    --body "release drupal-updater-$uid" \
+    --title "drupal-updater release: $uid" \
+    --body "drupal-updater release: $uid" \
     --base main
