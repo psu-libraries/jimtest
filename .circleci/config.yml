@@ -26,22 +26,6 @@ jobs:
             cd drupal-site-config
             /usr/local/bin/pr-release clusters/prod/manifests/$CIRCLE_PROJECT_REPONAME/prod.yaml
 
-  drupal-updater:
-    docker:
-      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:b739133448b53bd776c7bb1df6d40603699d108d
-    environment:
-      GITHUB_USER: 'psu-stewardship-bot'
-      DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
-    steps:
-      - add_ssh_keys
-      - checkout
-      - run:
-          name: "Drupal Updater"
-          command: |
-            git clone $DRUPAL_UPDATER_REPO
-            cd drupal-updater
-            /usr/local/bin/drupal-updater
-
   build-and-push:
     parameters:
       version:
@@ -85,16 +69,25 @@ jobs:
             cd drupal-site-config
             ./bin/generate_app
 
+  drupal-updater:
+    docker:
+      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:b739133448b53bd776c7bb1df6d40603699d108d
+    environment:
+      GITHUB_USER: 'psu-stewardship-bot'
+      DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
+    steps:
+      - add_ssh_keys
+      - checkout
+      - run:
+          name: "Drupal Updater"
+          command: |
+            git clone $DRUPAL_UPDATER_REPO
+            cd drupal-updater
+            /usr/local/bin/drupal-updater
+
 workflows:
   docker_push:
     jobs:
-      - drupal-updater:
-          context:
-            - org-global
-          filters:
-            branches:
-              only:
-                - main
       - release_image:
           context:
             - org-global
@@ -135,3 +128,11 @@ workflows:
             branches:
               only:
                 - /preview\/.*/
+      - drupal-updater:
+          context:
+            - org-global
+          filters:
+            branches:
+              only:
+                - main
+                - drupal-updater
