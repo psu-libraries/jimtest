@@ -75,6 +75,9 @@ jobs:
     environment:
       GITHUB_USER: 'psu-stewardship-bot'
       DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
+    parameters:
+      config_env:
+        type: string
     steps:
       - add_ssh_keys
       - checkout
@@ -131,8 +134,10 @@ workflows:
       - drupal-updater:
           context:
             - org-global
+          config_env: qa
+          requires:
+            - build-and-push
           filters:
             branches:
               only:
                 - main
-                - drupal-updater
