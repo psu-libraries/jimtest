@@ -28,7 +28,7 @@ jobs:
 
   drupal-updater:
     docker:
-      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:v4.1.1
+      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:0d8fbb94fa29367d76a10c1c0a9fdc372378b3c8
     environment:
       GITHUB_USER: 'psu-stewardship-bot'
       DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
@@ -36,7 +36,7 @@ jobs:
       - add_ssh_keys
       - checkout
       - run:
-          name: "Release"
+          name: "Drupal Updater"
           command: |
             git clone $DRUPAL_UPDATER_REPO
             cd drupal-updater
@@ -94,7 +94,7 @@ workflows:
           filters:
             branches:
               only:
-                - drupal-updater
+                - main
       - release_image:
           context:
             - org-global
