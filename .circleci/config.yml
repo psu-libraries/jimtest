@@ -12,6 +12,7 @@ jobs:
       REGISTRY_HOST: harbor.k8s.libraries.psu.edu
       GITHUB_USER: 'psu-stewardship-bot'
       CONFIG_REPO: git@github.com:psu-libraries/drupal-site-config.git
+      DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
     steps:
       - add_ssh_keys
       - checkout
@@ -24,6 +25,22 @@ jobs:
             git clone $CONFIG_REPO
             cd drupal-site-config
             /usr/local/bin/pr-release clusters/prod/manifests/$CIRCLE_PROJECT_REPONAME/prod.yaml
+
+  drupal-updater:
+    docker:
+      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:v4.1.1
+    environment:
+      GITHUB_USER: 'psu-stewardship-bot'
+      DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
+    steps:
+      - add_ssh_keys
+      - checkout
+      - run:
+          name: "Release"
+          command: |
+            git clone $DRUPAL_UPDATER_REPO
+            cd drupal-updater
+            /usr/local/bin/drupal-updater
 
   build-and-push:
     parameters:
@@ -71,6 +88,13 @@ jobs:
 workflows:
   docker_push:
     jobs:
+      - drupal-updater:
+          context:
+            - org-global
+          filters:
+            branches:
+              only:
+                - drupal-updater
       - release_image:
           context:
             - org-global
