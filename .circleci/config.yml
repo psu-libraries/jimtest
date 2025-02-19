@@ -28,7 +28,7 @@ jobs:
 
   drupal-updater:
     docker:
-      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:0d8fbb94fa29367d76a10c1c0a9fdc372378b3c8
+      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:b739133448b53bd776c7bb1df6d40603699d108d
     environment:
       GITHUB_USER: 'psu-stewardship-bot'
       DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
