@@ -75,9 +75,6 @@ jobs:
     environment:
       GITHUB_USER: 'psu-stewardship-bot'
       DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
-    parameters:
-      config_env:
-        type: string
     steps:
       - add_ssh_keys
       - run:
