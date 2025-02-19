@@ -80,7 +80,6 @@ jobs:
         type: string
     steps:
       - add_ssh_keys
-      - checkout
       - run:
           name: "Drupal Updater"
           command: |
@@ -111,6 +110,9 @@ workflows:
               only:
                 - main
                 - /preview\/.*/
+            tags:
+              only:
+                - /^jimtest*/
       - deploy:
           context:
             - org-global
@@ -134,10 +136,13 @@ workflows:
       - drupal-updater:
           context:
             - org-global
-          config_env: qa
+          name: "drupal-updater"
           requires:
             - build-and-push
           filters:
-            branches:
+            tags:
               only:
-                - main
+                - /^jimtest*/
+            branches:
+              ignore:
+                  - /.*/
