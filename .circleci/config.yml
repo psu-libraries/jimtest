@@ -109,7 +109,7 @@ workflows:
                 - /preview\/.*/
             tags:
               only:
-                - /^jimtest*/
+                - /jimtest-.*/
       - deploy:
           context:
             - org-global
@@ -139,7 +139,7 @@ workflows:
           filters:
             tags:
               only:
-                - /^jimtest*/
+                - /jimtest-.*/
             branches:
               ignore:
                   - /.*/
