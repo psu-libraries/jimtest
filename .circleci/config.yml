@@ -75,11 +75,15 @@ jobs:
     environment:
       GITHUB_USER: 'psu-stewardship-bot'
       DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
+      REGISTRY_HOST: harbor.k8s.libraries.psu.edu
     steps:
       - add_ssh_keys
       - run:
           name: "Drupal Updater"
           command: |
+            export REGISTRY_REPO="library/$CIRCLE_PROJECT_REPONAME"
+            /usr/local/bin/tag-image
+            ssh-keyscan github.com > ~/.ssh/known_hosts
             git clone $DRUPAL_UPDATER_REPO
             cd drupal-updater
             /usr/local/bin/drupal-updater
