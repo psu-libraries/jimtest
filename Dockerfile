@@ -1,5 +1,8 @@
 #syntax=docker/dockerfile:1
-FROM harbor.k8s.libraries.psu.edu/library/drupal-base-image:php-8.3.8-node-20-v712
+
+FROM harbor.k8s.libraries.psu.edu/library/and:v1.0.3
+# FROM harbor.k8s.libraries.psu.edu/library/drupal-base-image:php-8.3.8-node-20-v712
+
 WORKDIR /var/www/html
 
 USER root
