@@ -1,6 +1,10 @@
 #syntax=docker/dockerfile:1
 
 FROM harbor.k8s.libraries.psu.edu/library/ahd:v1.0.3
+WORKDIR /var/www/html
+USER drupal
+RUN git remote set-url origin git@github.com:psu-libraries/jimtest.git
+
 
 # FROM harbor.k8s.libraries.psu.edu/library/drupal-base-image:php-8.3.8-node-20-v712
 
