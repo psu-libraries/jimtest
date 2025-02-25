@@ -71,22 +71,23 @@ jobs:
 
   drupal-updater:
     docker:
-      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:b739133448b53bd776c7bb1df6d40603699d108d
+      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:$CI_UTILS_IMG_TAG
     environment:
-      GITHUB_USER: 'psu-stewardship-bot'
-      DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
-      REGISTRY_HOST: harbor.k8s.libraries.psu.edu
+      CONFIG_REPO: git@github.com:psu-libraries/drupal-site-config.git
+    parameters:
+      config_env:
+        type: string
     steps:
       - add_ssh_keys
+      - checkout
       - run:
-          name: "Drupal Updater"
+          name: "Deploy Drupal Updater"
           command: |
-            export REGISTRY_REPO="library/$CIRCLE_PROJECT_REPONAME"
-            /usr/local/bin/tag-image
+            export CONFIG_ENV=<< parameters.config_env >>
             ssh-keyscan github.com > ~/.ssh/known_hosts
-            git clone $DRUPAL_UPDATER_REPO
-            cd drupal-updater
-            /usr/local/bin/drupal-updater
+            git clone $CONFIG_REPO
+            cd drupal-site-config
+            ./bin/generate_app_update
 
 workflows:
   docker_push:
@@ -137,13 +138,10 @@ workflows:
       - drupal-updater:
           context:
             - org-global
-          name: "drupal-updater"
+          config_env: dev
           requires:
             - build-and-push
           filters:
-            tags:
-              only:
-                - /jimtest-.*/
             branches:
-              ignore:
-                  - /.*/
+              only:
+                - /update\/.*/
