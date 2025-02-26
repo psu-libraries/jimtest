@@ -3,7 +3,7 @@
 
 # use drupal base image
 
-FROM harbor.k8s.libraries.psu.edu/library/drupal-base-image:php-8.3.8-node-20-v712
+FROM harbor.k8s.libraries.psu.edu/library/drupal-base-image:php-8.3.8-node-20-v770
 
 WORKDIR /var/www/html
 
