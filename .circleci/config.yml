@@ -112,9 +112,6 @@ workflows:
               only:
                 - main
                 - /preview\/.*/
-            tags:
-              only:
-                - /jimtest-.*/
       - deploy:
           context:
             - org-global
