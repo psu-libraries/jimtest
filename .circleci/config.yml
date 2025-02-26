@@ -112,6 +112,7 @@ workflows:
               only:
                 - main
                 - /preview\/.*/
+                - /update\/.*/
       - deploy:
           context:
             - org-global
