@@ -25,14 +25,3 @@ RUN --mount=type=secret,id=COMPOSER_AUTH,env=COMPOSER_AUTH,required composer ins
 ADD --chown=drupal . /var/www/html
 
 RUN build-themes
-
-
-# # use custom drupal image
-
-# FROM harbor.k8s.libraries.psu.edu/library/pabook:v1.0.10
-
-# WORKDIR /var/www/html
-# USER drupal
-
-# RUN git config --global --add safe.directory /var/www/html && \
-#     git remote set-url origin git@github.com:psu-libraries/jimtest.git
