@@ -12,7 +12,6 @@ jobs:
       REGISTRY_HOST: harbor.k8s.libraries.psu.edu
       GITHUB_USER: 'psu-stewardship-bot'
       CONFIG_REPO: git@github.com:psu-libraries/drupal-site-config.git
-      DRUPAL_UPDATER_REPO: git@github.com:psu-libraries/drupal-updater.git
     steps:
       - add_ssh_keys
       - checkout
