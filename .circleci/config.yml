@@ -1,7 +1,8 @@
 version: 2.1
 
 orbs:
-  docker: circleci/docker@2.8.2
+  docker: circleci/docker@2.6.0
+  # docker: circleci/docker@2.8.2
 
 jobs:
 
@@ -29,9 +30,10 @@ jobs:
     parameters:
       version:
         type: string
-    executor:
-      name: docker/docker
-      tag: "3.8"
+    executor: docker/docker
+    # executor:
+    #   name: docker/docker
+    #   tag: "3.8"
     environment:
       REGISTRY_HOST: harbor.k8s.libraries.psu.edu
     steps:
