@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "661493011d53eb76f6f37d88364b8b78",
+    "content-hash": "62a61f891add4fcb66141266b0135fea",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -912,6 +912,46 @@
                 "source": "https://github.com/cweagans/composer-patches/tree/1.7.3"
             },
             "time": "2022-12-20T22:53:13+00:00"
+        },
+        {
+            "name": "davidrjonas/composer-lock-diff",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davidrjonas/composer-lock-diff.git",
+                "reference": "829047c7116f923486a107ae5cd7a1ba50c873ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidrjonas/composer-lock-diff/zipball/829047c7116f923486a107ae5cd7a1ba50c873ad",
+                "reference": "829047c7116f923486a107ae5cd7a1ba50c873ad",
+                "shasum": ""
+            },
+            "bin": [
+                "composer-lock-diff"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Jonas",
+                    "homepage": "https://github.com/davidrjonas"
+                }
+            ],
+            "description": "See what has changed after a composer update.",
+            "support": {
+                "issues": "https://github.com/davidrjonas/composer-lock-diff/issues",
+                "source": "https://github.com/davidrjonas/composer-lock-diff/tree/1.7.1"
+            },
+            "time": "2025-01-24T05:58:02+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1937,7 +1977,7 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.4.3",
+            "version": "10.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -1981,7 +2021,7 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.4.3"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.4.4"
             },
             "time": "2024-08-22T14:31:30+00:00"
         },
@@ -5868,6 +5908,49 @@
                 "source": "https://github.com/mck89/peast/tree/v1.16.3"
             },
             "time": "2024-07-23T14:00:32+00:00"
+        },
+        {
+            "name": "metadrop/drupal-updater",
+            "version": "1.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Metadrop/drupal-updater.git",
+                "reference": "885e29f42fe744719893734e4a68a52fc0753aae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Metadrop/drupal-updater/zipball/885e29f42fe744719893734e4a68a52fc0753aae",
+                "reference": "885e29f42fe744719893734e4a68a52fc0753aae",
+                "shasum": ""
+            },
+            "require": {
+                "davidrjonas/composer-lock-diff": "^1.7",
+                "drush/drush": ">=10",
+                "symfony/console": ">=4",
+                "symfony/process": ">=4"
+            },
+            "bin": [
+                "drupal-updater"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DrupalUpdater\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Omar",
+                    "email": "omar.lopesino@metadrop.net"
+                }
+            ],
+            "description": "Update drupal project dependencies",
+            "support": {
+                "issues": "https://github.com/Metadrop/drupal-updater/issues",
+                "source": "https://github.com/Metadrop/drupal-updater/tree/1.13.0"
+            },
+            "time": "2025-01-14T15:05:27+00:00"
         },
         {
             "name": "nikic/php-parser",
