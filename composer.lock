@@ -7030,16 +7030,16 @@
         },
         {
             "name": "psu-libraries/psulib_base",
-            "version": "1.0.14",
+            "version": "1.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psu-libraries/psulib_base.git",
-                "reference": "564dc560bd9c72355b33b4ad177d9e67a1bda6ee"
+                "reference": "f0f777baa09f6fec69aecb4e3ac1b367d3c84f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psu-libraries/psulib_base/zipball/564dc560bd9c72355b33b4ad177d9e67a1bda6ee",
-                "reference": "564dc560bd9c72355b33b4ad177d9e67a1bda6ee",
+                "url": "https://api.github.com/repos/psu-libraries/psulib_base/zipball/f0f777baa09f6fec69aecb4e3ac1b367d3c84f82",
+                "reference": "f0f777baa09f6fec69aecb4e3ac1b367d3c84f82",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -7079,10 +7079,10 @@
             ],
             "description": "The base theme for the Penn State University Libraries",
             "support": {
-                "source": "https://github.com/psu-libraries/psulib_base/tree/1.0.14",
+                "source": "https://github.com/psu-libraries/psulib_base/tree/1.0.15",
                 "issues": "https://github.com/psu-libraries/psulib_base/issues"
             },
-            "time": "2025-01-09T15:11:00+00:00"
+            "time": "2025-03-12T15:58:31+00:00"
         },
         {
             "name": "psu-libraries/psulib_base_helper",
