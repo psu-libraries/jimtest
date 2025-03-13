@@ -1,5 +1,5 @@
 ## Quickstart (From Pre-Configured Site Repository)
-This is a test
+This is a test of the test.
 
 ### Fill in project settings
 Setup project name, hostname and any other settings that might be specific to your site
