@@ -76,7 +76,6 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/webform": "^6.2",
         "drush/drush": "^13.0",
-        "metadrop/drupal-updater": "^1.13",
         "npm-asset/northernco--ckeditor5-anchor-drupal": "^0.5.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "psu-libraries/psul_splunk_logger": "^1.0",
