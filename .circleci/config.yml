@@ -125,6 +125,7 @@ jobs:
             ./bin/generate_app_update
 
 workflows:
+
   delete-deployment:
     when:
       equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
