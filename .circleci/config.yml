@@ -3,6 +3,20 @@ version: 2.1
 orbs:
   docker: circleci/docker@2.8.2
 
+parameters:
+  GHA_Actor:
+    type: string
+    default: ""
+  GHA_Action:
+    type: string
+    default: ""
+  GHA_Event:
+    type: string
+    default: ""
+  GHA_Meta:
+    type: string
+    default: ""
+
 jobs:
 
   release_image:
@@ -69,6 +83,25 @@ jobs:
             git clone $CONFIG_REPO
             cd drupal-site-config
             ./bin/generate_app
+  delete-deployment:
+    docker:
+      - image: harbor.k8s.libraries.psu.edu/library/ci-utils:$CI_UTILS_IMG_TAG
+    environment:
+      CONFIG_REPO: git@github.com:psu-libraries/drupal-site-config.git
+    parameters:
+      config_env:
+        type: string
+    steps:
+      - add_ssh_keys
+      - checkout
+      - run:
+          name: "Updating Config Repo"
+          command: |
+            export CONFIG_ENV=<< parameters.config_env >>
+            ssh-keyscan github.com > ~/.ssh/known_hosts
+            git clone $CONFIG_REPO
+            cd drupal-site-config
+            ./bin/delete-deployment
 
   drupal-updater:
     docker:
@@ -140,6 +173,16 @@ workflows:
           config_env: dev
           requires:
             - build-and-push
+          filters:
+            branches:
+              only:
+                - /update\/.*/
+      - delete-deployment:
+          context:
+            - org-global
+          config_env: dev
+          when:
+            equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
           filters:
             branches:
               only:

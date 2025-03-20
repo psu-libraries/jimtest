@@ -1,0 +1,11 @@
+on:
+  delete
+jobs:
+  trigger-circleci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger CircleCI Build
+        id: "delete-deployment"
+        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.3
+        env:
+          CCI_TOKEN: ${{ secrets.CircleCI_token }}
