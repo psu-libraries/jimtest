@@ -124,6 +124,18 @@ jobs:
             ./bin/generate_app_update
 
 workflows:
+  delete-deployment:
+    when:
+      equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
+    jobs:
+      - delete-deployment:
+          context:
+            - org-global
+          config_env: dev
+          filters:
+            branches:
+              only:
+                - /update\/.*/
   docker_push:
     jobs:
       - release_image:
@@ -173,16 +185,6 @@ workflows:
           config_env: dev
           requires:
             - build-and-push
-          filters:
-            branches:
-              only:
-                - /update\/.*/
-      - delete-deployment:
-          context:
-            - org-global
-          config_env: dev
-          when:
-            equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
           filters:
             branches:
               only:
