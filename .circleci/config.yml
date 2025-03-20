@@ -102,7 +102,7 @@ jobs:
             ssh-keyscan github.com > ~/.ssh/known_hosts
             git clone $CONFIG_REPO
             cd drupal-site-config
-            ./bin/delete-deployment 
+            ./bin/delete-deployment
 
   drupal-updater:
     docker:
