@@ -160,7 +160,7 @@ workflows:
               only:
                 - main
                 - /preview\/.*/
-                - /update\/.*/
+                - /updater\/.*/
       - deploy:
           context:
             - org-global
@@ -190,4 +190,4 @@ workflows:
           filters:
             branches:
               only:
-                - /update\/.*/
+                - /updater\/.*/
