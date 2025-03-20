@@ -83,6 +83,7 @@ jobs:
             git clone $CONFIG_REPO
             cd drupal-site-config
             ./bin/generate_app
+
   delete-deployment:
     docker:
       - image: harbor.k8s.libraries.psu.edu/library/ci-utils:$CI_UTILS_IMG_TAG
