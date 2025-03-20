@@ -127,7 +127,7 @@ jobs:
 workflows:
   delete-deployment:
     when:
-      equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
+      equal: [ "delete", << pipeline.parameters.GHA_Action >> ]
     jobs:
       - delete-deployment:
           context:
