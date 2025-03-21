@@ -3,7 +3,7 @@ name: create-deployment
 on: 
   create
 jobs:
-  delete-deployment:
+  create-deployment:
     runs-on: ubuntu-latest
     steps:
       - name: create-deployment
@@ -11,6 +11,7 @@ jobs:
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         with:
           target_slug: github/psu-libraries/jimtest
+          GHA_Meta: "delete-deployment"
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
         continue-on-error: true
