@@ -11,6 +11,3 @@ jobs:
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
-        continue-on-error: true
-      - name: Print CircleCI Response
-        run: echo "${{ steps.create-deployment.outputs.circleci_response }}"
