@@ -6,13 +6,13 @@ jobs:
   delete-deployment:
     runs-on: ubuntu-latest
     steps:
-      - name: delete-deployment
-        id: delete-deployment
+      - name: create-deployment
+        id: create-deployment
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         with:
-          GHA_Meta: "delete-deployment"
+          GHA_Meta: "create-deployment"
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
         continue-on-error: true
       - name: Print CircleCI Response
-        run: echo '${{ steps.delete-deployment.outputs.circleci_response }}''
+        run: echo '${{ steps.create-deployment.outputs.circleci_response }}''
