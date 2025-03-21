@@ -1,5 +1,4 @@
 
-name: delete-deployment
 on: 
   delete
 jobs:
