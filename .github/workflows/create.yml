@@ -10,7 +10,7 @@ jobs:
         id: create-deployment
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         with:
-          GHA_Meta: "create-deployment"
+          target_slug: github/psu-libraries/jimtest
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
         continue-on-error: true
