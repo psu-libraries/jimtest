@@ -138,7 +138,7 @@ workflows:
           filters:
             branches:
               only:
-                - /update\/.*/
+                - jimtest
   docker_push:
     jobs:
       - release_image:
@@ -161,7 +161,7 @@ workflows:
               only:
                 - main
                 - /preview\/.*/
-                - /updater\/.*/
+                - /update\/.*/
       - deploy:
           context:
             - org-global
@@ -191,4 +191,4 @@ workflows:
           filters:
             branches:
               only:
-                - /updater\/.*/
+                - /update\/.*/
