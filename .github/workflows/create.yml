@@ -5,8 +5,8 @@ jobs:
   create-deployment:
     runs-on: ubuntu-latest
     steps:
-      - name: create-deployment
-        id: create-deployment
+      - name: jimtest default
+        id: 938ebac4-e0f8-573e-b942-78942188f4f4
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
