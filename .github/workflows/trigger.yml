@@ -1,6 +1,6 @@
 
 name: delete-deployment
-on: [delete]
+on: [create,delete]
 jobs:
   delete-deployment:
     runs-on: ubuntu-latest
