@@ -15,4 +15,4 @@ jobs:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
         continue-on-error: true
       - name: Print CircleCI Response
-        run: echo '${{ steps.create-deployment.outputs.circleci_response }}'
+        run: echo "${{ steps.create-deployment.outputs.circleci_response }}"
