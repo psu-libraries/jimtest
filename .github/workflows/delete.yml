@@ -10,7 +10,6 @@
 #         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
 #         env:
 #           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
-#       - run: echo "This is pipeline ID << pipeline.id >>"
 
 on: 
   delete
@@ -18,6 +17,7 @@ jobs:
   delete-deployment:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -26,13 +26,6 @@ jobs:
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
-        with:
-          vcs-type: "github"
-          org-slug: "psu-libraries"
-          project-slug: "jimtest"
-          branch: "main"
-      - name: Print Pipeline ID
-        run: echo "This is pipeline ID << pipeline.id >>"
 
       - name: Debug - Print Environment Variables
         run: env
