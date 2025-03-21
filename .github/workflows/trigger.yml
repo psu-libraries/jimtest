@@ -1,11 +1,11 @@
 on:
-  delete
+  push
 jobs:
   trigger-circleci:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger CircleCI Build
-        id: "delete-deployment"
+      - name: delete-deployment
+        id: delete-deployment
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         with:
           GHA_Meta: "delete-deployment"
