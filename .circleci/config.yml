@@ -127,9 +127,9 @@ jobs:
 workflows:
 
   delete-deployment:
-    # when: << pipeline.parameters.GHA_Meta >>
-    when:
-      equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
+    when: << pipeline.parameters.GHA_Action >>
+    # when:
+    #   equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
     jobs:
       - delete-deployment:
           context:
@@ -192,11 +192,3 @@ workflows:
             branches:
               only:
                 - /update\/.*/
-      - delete-deployment:
-          context:
-            - org-global
-          config_env: dev
-          filters:
-            branches:
-              only:
-                - jimtest
