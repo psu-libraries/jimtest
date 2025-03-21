@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: Trigger CircleCI Build
         id: "delete-deployment"
-        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.3
+        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
         env:
-          CCI_TOKEN: ${{ secrets.CircleCI_token }}
+          CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
