@@ -14,4 +14,4 @@ jobs:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
         continue-on-error: true
       - name: Print CircleCI Response
-        run: "echo 'CircleCI response was: '${{ steps.delete-deployment.outputs.circleci_response }}'"
+        run: echo "CircleCI response was: '${{ steps.delete-deployment.outputs.circleci_response }}'"
