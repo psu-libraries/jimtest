@@ -1,3 +1,4 @@
+
 name: delete-deployment
 on: [delete]
 jobs:
@@ -11,3 +12,6 @@ jobs:
           GHA_Meta: "delete-deployment"
         env:
           CCI_TOKEN: ${{ secrets.CCI_TOKEN }}
+        continue-on-error: true
+      - name: Print CircleCI Response
+        run: echo "CircleCI response was: ${{ steps.delete-deployment.outputs.circleci_response }}"
