@@ -16,9 +16,6 @@ parameters:
   GHA_Meta:
     type: string
     default: ""
-  pipeline:
-    type: string
-    default: ""
 
 jobs:
 
@@ -130,8 +127,9 @@ jobs:
 workflows:
 
   delete-deployment:
-    when:
-      equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
+    when: << pipeline.parameters.GHA_Event >>
+    # when:
+    #   equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
     jobs:
       - delete-deployment:
           context:
