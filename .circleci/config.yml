@@ -16,10 +16,6 @@ parameters:
   GHA_Meta:
     type: string
     default: ""
-  pipeline:
-    type: map
-    default:
-      GHA_Event: ""
 
 jobs:
 
