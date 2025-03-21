@@ -24,9 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Trigger CircleCI Pipeline
         id: create-deployment
         uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0.5
