@@ -1,7 +1,7 @@
-name: Trigger Delete Deployment
+name: delete-deployment
 on: [delete]
 jobs:
-  trigger-circleci:
+  delete-deployment:
     runs-on: ubuntu-latest
     steps:
       - name: delete-deployment
