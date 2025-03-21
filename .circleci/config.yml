@@ -126,19 +126,19 @@ jobs:
 
 workflows:
 
-  delete-deployment:
-    # when: << pipeline.parameters.GHA_Meta >>
-    when:
-      equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
-    jobs:
-      - delete-deployment:
-          context:
-            - org-global
-          config_env: dev
-          filters:
-            branches:
-              only:
-                - jimtest
+  # delete-deployment:
+  #   # when: << pipeline.parameters.GHA_Meta >>
+  #   when:
+  #     equal: [ "delete", << pipeline.parameters.GHA_Event >> ]
+  #   jobs:
+  #     - delete-deployment:
+  #         context:
+  #           - org-global
+  #         config_env: dev
+  #         filters:
+  #           branches:
+  #             only:
+  #               - jimtest
   docker_push:
     jobs:
       - release_image:
@@ -192,3 +192,11 @@ workflows:
             branches:
               only:
                 - /update\/.*/
+      - delete-deployment:
+          context:
+            - org-global
+          config_env: dev
+          filters:
+            branches:
+              only:
+                - jimtest
