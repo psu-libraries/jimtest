@@ -1,4 +1,4 @@
-name: Jimtest Delete Branch
+name: Trigger Delete Deployment
 on: [delete]
 jobs:
   trigger-circleci:
